@@ -3,34 +3,32 @@ package entities;
 public class Space {
 
     private Integer actual;
-    private final Integer expected;
+    private final int expected;
     private final boolean fixed;
 
-    public Space(Integer expected, boolean fixed) {
+
+    public Space(final int expected, final boolean fixed) {
         this.expected = expected;
         this.fixed = fixed;
-
-        if (fixed) {
-            this.actual = expected;
+        if (fixed){
+            actual = expected;
         }
     }
 
     public Integer getActual() {
         return actual;
     }
-    
+
     public void setActual(final Integer actual) {
+        if (fixed) return;
         this.actual = actual;
     }
 
-    /**
-     * Limpa o valor da célula, definindo-o como nulo.
-     */
-    public void clearSpace() {
-        this.setActual(null);
+    public void clearSpace(){
+        setActual(null);
     }
 
-    public Integer getExpected() {
+    public int getExpected() {
         return expected;
     }
 
